@@ -47,26 +47,26 @@ function AuthorProfile() {
   const postCount = Math.floor(Math.random() * 10) + 1;
   const commentCount = Math.floor(Math.random() * 30) + 1;
   return (
-    <div style={{ background: 'linear-gradient(135deg, #f4f8ff 60%, #ffe6e6 100%)', minHeight: '100vh', padding: '40px 0' }}>
-      <div style={{ maxWidth: 420, margin: '0 auto', background: '#fff', borderRadius: 20, border: '1.5px solid #e3e8f0', boxShadow: '0 8px 32px rgba(160,44,44,0.10)', padding: 36, textAlign: 'center', position: 'relative' }}>
+    <div style={{ background: 'linear-gradient(135deg, #fff0f0 60%, #ffe6e6 100%)', minHeight: '100vh', padding: '40px 0' }}>
+      <div style={{ maxWidth: 420, margin: '0 auto', background: '#fff', borderRadius: 20, border: '2px solid #a02c2c', boxShadow: '0 8px 32px rgba(160,44,44,0.13)', padding: 36, textAlign: 'center', position: 'relative' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 18 }}>
           <div style={{ width: 90, height: 90, borderRadius: '50%', background: '#a02c2c', color: '#fff', fontSize: 36, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14, boxShadow: '0 4px 16px rgba(160,44,44,0.18)' }}>
             {getInitials(author.name)}
           </div>
-          <h2 style={{ margin: 0, fontSize: '2.2em', color: '#222', letterSpacing: '-1px' }}>{author.name}</h2>
+          <h2 style={{ margin: 0, fontSize: '2.2em', color: '#a02c2c', letterSpacing: '-1px' }}>{author.name}</h2>
           {author.tagline && <div style={{ color: '#a02c2c', fontWeight: 500, fontSize: '1.08em', margin: '4px 0 8px 0', fontStyle: 'italic' }}>&ldquo;{author.tagline}&rdquo;</div>}
-          <div style={{ color: '#2563eb', fontWeight: 500, marginBottom: 4, fontSize: '1.13em' }}>{author.role}</div>
+          <div style={{ color: '#a02c2c', fontWeight: 500, marginBottom: 4, fontSize: '1.13em' }}>{author.role}</div>
           <div style={{ color: '#888', fontSize: '1.03em', marginBottom: 14 }}>{author.location}</div>
         </div>
-        <hr style={{ border: 0, borderTop: '1.5px solid #f0f0f0', margin: '18px 0 20px 0' }} />
+        <hr style={{ border: 0, borderTop: '1.5px solid #eebbbb', margin: '18px 0 20px 0' }} />
         <div style={{ color: '#444', fontSize: '1.13em', marginBottom: 22 }}>{author.bio}</div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 28, marginBottom: 22 }}>
           <div style={{ color: '#a02c2c', fontWeight: 600 }}><span role="img" aria-label="posts">📝</span> {postCount} Posts</div>
-          <div style={{ color: '#2563eb', fontWeight: 600 }}><span role="img" aria-label="comments">💬</span> {commentCount} Comments</div>
+          <div style={{ color: '#a02c2c', fontWeight: 600 }}><span role="img" aria-label="comments">💬</span> {commentCount} Comments</div>
         </div>
         {author.email && <a href={`mailto:${author.email}`} style={{ display: 'inline-block', background: '#a02c2c', color: '#fff', borderRadius: 10, padding: '12px 30px', textDecoration: 'none', fontWeight: 600, fontSize: '1.08em', marginBottom: 18, boxShadow: '0 2px 8px rgba(160,44,44,0.10)', transition: 'background 0.2s' }} onMouseOver={e => e.target.style.background='#d32f2f'} onMouseOut={e => e.target.style.background='#a02c2c'}>Contact</a>}
         <div style={{ marginTop: 22 }}>
-          <Link to="/" style={{ color: '#2563eb', textDecoration: 'underline', fontWeight: 500, fontSize: '1.08em' }}>← Back to Feed</Link>
+          <Link to="/" style={{ color: '#a02c2c', textDecoration: 'underline', fontWeight: 500, fontSize: '1.08em' }}>← Back to Feed</Link>
         </div>
       </div>
     </div>

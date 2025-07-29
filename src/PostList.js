@@ -271,32 +271,31 @@ function PostList() {
       </div>
       <div className="section-header">Section &gt; Sub-section</div>
       {paginatedPosts.map((post, idx) => {
-        // Unique reddish style for the first post on the first page
-        const isFirstPageFirstPost = page === 1 && idx === 0;
+        // Apply reddish style to all posts on all pages
         return (
           <div
             className="post-card"
             key={post.id}
-            style={isFirstPageFirstPost ? {
+            style={{
               background: 'linear-gradient(135deg, #fff0f0 60%, #ffe6e6 100%)',
               border: '2px solid #a02c2c',
               boxShadow: '0 8px 32px rgba(160,44,44,0.13)',
               position: 'relative',
-            } : {}}
+            }}
           >
             <div className="post-header">
-              <div className="post-title" style={isFirstPageFirstPost ? { color: '#a02c2c' } : {}}>{post.title}</div>
+              <div className="post-title" style={{ color: '#a02c2c' }}>{post.title}</div>
               <div className="post-desc">{post.desc}</div>
             </div>
-            <Post post={{ ...post, imageStyle: isFirstPageFirstPost ? { background: '#a02c2c' } : {} }} />
+            <Post post={{ ...post, imageStyle: { background: '#a02c2c' } }} />
             <div
               className="comments-section"
-              style={isFirstPageFirstPost ? {
+              style={{
                 background: '#fff4f4',
                 border: '1.5px solid #eebbbb',
-              } : {}}
+              }}
             >
-              <div className="comments-header" style={isFirstPageFirstPost ? { color: '#a02c2c' } : {}}>{post.comments.length} Comments</div>
+              <div className="comments-header" style={{ color: '#a02c2c' }}>{post.comments.length} Comments</div>
               <div className="comment-input-row">
                 <input
                   className="comment-input"
@@ -305,7 +304,7 @@ function PostList() {
                   onChange={e => handleInputChange(post.id, e.target.value)}
                   onKeyDown={e => { if (e.key === 'Enter') handleAddComment(post.id); }}
                 />
-                <button className="comment-send-btn" onClick={() => handleAddComment(post.id)} style={isFirstPageFirstPost ? { background: '#a02c2c' } : {}}>▶</button>
+                <button className="comment-send-btn" onClick={() => handleAddComment(post.id)} style={{ background: '#a02c2c' }}>▶</button>
               </div>
               <div className="comment-list">
                 {post.comments.map(comment => (

@@ -79,14 +79,14 @@ body {
 }
 
 .author-link {
-  color: #2d5be3;
+  color: #a02c2c;
   font-weight: 600;
   text-decoration: none;
   margin-right: 8px;
   transition: color 0.2s;
 }
 .author-link:hover {
-  color: #0d5c63;
+  color: #d32f2f;
 }
 
 .post-date {
@@ -194,7 +194,7 @@ body {
 
 .comment-author {
   font-weight: 600;
-  color: #2563eb;
+  color: #a02c2c;
   margin-right: 8px;
   text-decoration: none;
 }
@@ -220,7 +220,7 @@ body {
 }
 
 .comment-reply {
-  color: #2563eb;
+  color: #a02c2c;
   font-size: 0.97em;
   cursor: pointer;
   margin-left: 8px;
@@ -235,19 +235,19 @@ body {
 
 .page-btn {
   background: #fff;
-  border: 1.5px solid #2563eb;
+  border: 1.5px solid #a02c2c;
   border-radius: 6px;
   padding: 6px 16px;
   font-size: 1em;
   cursor: pointer;
-  color: #2563eb;
+  color: #a02c2c;
   font-weight: 600;
   transition: background 0.2s, color 0.2s;
 }
 .page-btn.active, .page-btn:hover {
-  background: #2563eb;
+  background: #a02c2c;
   color: #fff;
-  border-color: #2563eb;
+  border-color: #a02c2c;
 }
 
 /* Author Profile */
