@@ -270,35 +270,54 @@ function PostList() {
         />
       </div>
       <div className="section-header">Section &gt; Sub-section</div>
-      {paginatedPosts.map(post => (
-        <div className="post-card" key={post.id}>
-          <div className="post-header">
-            <div className="post-title">{post.title}</div>
-            <div className="post-desc">{post.desc}</div>
-          </div>
-          <Post post={post} />
-          <div className="comments-section">
-            <div className="comments-header">{post.comments.length} Comments</div>
-            <div className="comment-input-row">
-              <input
-                className="comment-input"
-                placeholder="Write your comment..."
-                value={commentInputs[post.id] || ''}
-                onChange={e => handleInputChange(post.id, e.target.value)}
-                onKeyDown={e => { if (e.key === 'Enter') handleAddComment(post.id); }}
-              />
-              <button className="comment-send-btn" onClick={() => handleAddComment(post.id)}>▶</button>
+      {paginatedPosts.map((post, idx) => {
+        // Unique reddish style for the first post on the first page
+        const isFirstPageFirstPost = page === 1 && idx === 0;
+        return (
+          <div
+            className="post-card"
+            key={post.id}
+            style={isFirstPageFirstPost ? {
+              background: 'linear-gradient(135deg, #fff0f0 60%, #ffe6e6 100%)',
+              border: '2px solid #a02c2c',
+              boxShadow: '0 8px 32px rgba(160,44,44,0.13)',
+              position: 'relative',
+            } : {}}
+          >
+            <div className="post-header">
+              <div className="post-title" style={isFirstPageFirstPost ? { color: '#a02c2c' } : {}}>{post.title}</div>
+              <div className="post-desc">{post.desc}</div>
             </div>
-            <div className="comment-list">
-              {post.comments.map(comment => (
-                <div key={comment.id}>
-                  <Post.Comment comment={comment} />
-                </div>
-              ))}
+            <Post post={{ ...post, imageStyle: isFirstPageFirstPost ? { background: '#a02c2c' } : {} }} />
+            <div
+              className="comments-section"
+              style={isFirstPageFirstPost ? {
+                background: '#fff4f4',
+                border: '1.5px solid #eebbbb',
+              } : {}}
+            >
+              <div className="comments-header" style={isFirstPageFirstPost ? { color: '#a02c2c' } : {}}>{post.comments.length} Comments</div>
+              <div className="comment-input-row">
+                <input
+                  className="comment-input"
+                  placeholder="Write your comment..."
+                  value={commentInputs[post.id] || ''}
+                  onChange={e => handleInputChange(post.id, e.target.value)}
+                  onKeyDown={e => { if (e.key === 'Enter') handleAddComment(post.id); }}
+                />
+                <button className="comment-send-btn" onClick={() => handleAddComment(post.id)} style={isFirstPageFirstPost ? { background: '#a02c2c' } : {}}>▶</button>
+              </div>
+              <div className="comment-list">
+                {post.comments.map(comment => (
+                  <div key={comment.id}>
+                    <Post.Comment comment={comment} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
       <Pagination
         currentPage={page}
         totalPages={Math.ceil(posts.length / POSTS_PER_PAGE)}

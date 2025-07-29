@@ -6,7 +6,7 @@ function Post({ post }) {
   const [activeReaction, setActiveReaction] = useState(null);
   return (
     <div>
-      <div className="post-image" />
+      <div className="post-image" style={post.imageStyle || {}} />
       <div className="post-meta">
         <span className="author-avatar" />
         <Link className="author-link" to={`/author/${post.author.id}`}>{post.author.name}</Link>
@@ -14,7 +14,7 @@ function Post({ post }) {
       </div>
       <div className="post-content">{post.content}</div>
       <div className="reactions-bar">
-        {post.reactions.map((icon, idx) => (
+        {post.reactions && post.reactions.map((icon, idx) => (
           <button
             key={icon}
             className={`reaction${activeReaction === idx ? " active" : ""}`}
